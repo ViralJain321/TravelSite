@@ -1,0 +1,6 @@
+.styleImage {
+    background-color: lightGray;
+    border-radius: 8px 8px 0 0;
+    max-height: 140px;
+    overflow: hidden;
+  }
