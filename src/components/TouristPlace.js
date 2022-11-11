@@ -1,54 +1,65 @@
-import Card from "../ui/Card/Card";
-
 // import maldives2 from "./assets/maldives2.jpg";
 import classes from "./TouristPlace.module.css";
 
 // import { ProductCard } from "react-ui-cards";
-import { render } from "@testing-library/react";
+
 
 
 function TouristPlace(props) {
     const name = props.name
     const city = props.address.city;
     const country = props.address.country;
+    const kinds= props.kinds;
+
     const rate = props.rate;
     const image = props.image;
 
-    // if(image) {
-    // const Example = <ProductCard
-    //     price="3.0"
-    //     productName="madlives"
-    //     url='https://github.com/nukeop' />
+   console.log(image);
 
+    
+    if (image) {
+        // console.log(image)
+        const imgUrl = image.source
+        // console.log("image present");
+        return (
 
-    // header='https://i.imgur.com/vRAtM3i.jpg'
-    // avatar='https://i.imgur.com/XJxqvsU.jpg'
-    // positionName='Software Engineering Manager'
+                <div className={classes.touristCard}>
+                    {console.log(imgUrl)}
+                    <img className={classes.styleImage} src={imgUrl} alt="this is an img" />
+                    <h5 className={classes.name}>{name}</h5>
+                    <p><span>Rate:</span> {rate}</p>
+                    <p><span>Type:</span> {kinds}</p>
+                    <p>{country}</p>
+                </div>
 
+                /* <span className={classes.touristCard}>
+                    <img className={classes.styleImage} src={image} alt="this is an img" />
+                    <h2>{name}</h2>
+                    <p>{country}</p>
 
-    if(image){
-        console.log("image present");
-    return (
+                    
+                </span>
+                <span className={classes.touristCard}>
+                    <img className={classes.styleImage} src={image} alt="this is an img" />
+                    <h2>{name}</h2>
+                    <p>{country}</p>
 
-        <div>
-            {/* <Example /> */}
-            <Card>
-            {/* {console.log(image)} */}
-                <img className={classes.styleImage} src={image.source} alt="this is an img" />
-                <h2>{name}</h2>
-                 <p>{country}</p>
+                    
+                </span>
+                <span className={classes.touristCard}>
+                    <img className={classes.styleImage} src={image} alt="this is an img" />
+                    <h2>{name}</h2>
+                    <p>{country}</p>
 
-                {/* <img src={image} alt="This is an im"/>
-            <p>{name}</p>
-            <p>{city}</p> */}
-            </Card>
-        </div>
-    );
-        }
-        else{
-            return <h1>no image</h1>
-        }
-    // }
+                    
+                </span> */
+
+            
+    
+        );
+    }
+
+ 
 }
 
 export default TouristPlace;

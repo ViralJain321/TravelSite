@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import TouristCard from "../ui/TouristCard";
 import TouristPlace from "./TouristPlace";
+import classes from './ApiCall.module.css';
+import Card from "../ui/Card/Card";
 
 const options = {
     method: 'GET',
@@ -21,9 +24,11 @@ const ApiCall = (props) => {
 
     useEffect(() => {
 
+
         const abortController = new AbortController();
 
         const getData = async () => {
+
 
             // const getCoordinates = async () => {
             //     await fetch('https://opentripmap-places-v1.p.rapidapi.com/en/places/geoname?name=Paris', options)
@@ -35,7 +40,7 @@ const ApiCall = (props) => {
             // }
 
             let getCoordinates = await fetch('https://opentripmap-places-v1.p.rapidapi.com/en/places/geoname?name=' + props.enteredDestination,
-                options, {signal :abortController.signal})
+                options, { signal: abortController.signal })
             const coordinates = await getCoordinates.json();
 
             setLocationCoordinates(coordinates);
@@ -47,22 +52,15 @@ const ApiCall = (props) => {
 
             console.log(lat + " " + lon);
 
-            // const getPlaces = async () => {
-            //     await fetch('https://opentripmap-places-v1.p.rapidapi.com/en/places/radius?radius=10000&lon=' + lon + '&lat=' +
-            //         lat + '&limit=20', options)
-            //         .then((response) => response.json())
-            //         .then((data) => {
-            //             setPlaces(data)
-            //         })
-            // }
+        
 
             const getPlaces = await fetch('https://opentripmap-places-v1.p.rapidapi.com/en/places/radius?radius=10000&lon=' + lon + '&lat=' +
-                lat + '&limit=20', options , {signal :abortController.signal})
+                lat + '&limit=20', options, { signal: abortController.signal })
             const allPlaces = await getPlaces.json();
 
             setPlaces(allPlaces)
 
-            // console.log(allPlaces)   
+            console.log(allPlaces)
 
 
             for (const place of allPlaces.features) {
@@ -72,60 +70,80 @@ const ApiCall = (props) => {
                 const xid = place.properties.xid
 
                 const getPlaceProperties = await fetch('https://opentripmap-places-v1.p.rapidapi.com/en/places/xid/' + xid,
-                     options ,  {signal :abortController.signal})
+                    options, { signal: abortController.signal })
                 const properties = await getPlaceProperties.json();
 
                 setPlaceProperties((prevState) => {
                     return [...prevState, properties]
                 })
 
-                // console.log(properties);
-
-
             }
+
+
+
         }
+
 
         console.log(props.enteredDestination);
         getData();
 
+  
+
+
         return () => {
             setPlaceProperties([]);
+            console.log(placeProperties)
             abortController.abort();
         }
+
+
 
     }, [props.enteredDestination])
 
 
 
+
+
     return (
+
         <>
-            {/* <p>{JSON.stringify(locationCoordinates)}</p>
 
-            <h1>Hello</h1>
-            <p>{JSON.stringify(placeProperties)}</p> */}
 
-            {placeProperties.map((place) => {
-                        {/* console.log(place.xid) */}
-                        return ( <li key={place.xid}>
+            <Card>
+                <div className={classes.title}>{(locationCoordinates.name)[0].toUpperCase() + (locationCoordinates.name).substring(1)}</div>
+            </Card>
+            <TouristCard>
 
-                            <TouristPlace 
-                                name={place.name}
-                                address={place.address}
-                                rate={place.kind}
-                                kinds={place.kinds}
-                                image={place.preview}
-                            />
+                {/* <ul className={classes.list}> */}
+                {placeProperties.map((place) => {
+                    {/* console.log(place.xid)*/ }
+                    { console.log(place) }
+                    return (
+                        <TouristPlace
+                            key={place.xid}
+                            name={place.name}
+                            address={place.address}
+                            rate={place.rate}
+                            kinds={place.kinds}
+                            image={place.preview}
+                        />
+                    )
+                })}
 
-                        </li>
-                    )})}
+                {/* </ul> */}
+
+            </TouristCard>
+
+
         </>
-    )
+
+    );
 
 
 
 
 
-};
+}
 
 
 

@@ -18,7 +18,7 @@ function App() {
     // <div className="App">
     <>
       <h1>Lest start</h1>
-      
+
       <SearchForm onAddLocation = {updateLocation}/>
 
       {console.log(location)}
