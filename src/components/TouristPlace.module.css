@@ -10,10 +10,7 @@
 }
 
 .touristCard {
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* align-items: flex-start; */
-
+ 
   padding: 1px 2px;
   gap: 10px;
 
@@ -29,12 +26,6 @@
   color: #253b56;
   margin: 5% 3%;  
 
-
-  /* Inside auto layout */
-
-  /* flex: none;
-  order: 1;
-  flex-grow: 1; */
 }
 
 .name {
@@ -45,7 +36,7 @@
   word-wrap: break-word;
 }
 
-/* Style p element */
+
 p {
   font-size: 14px;
   color: #7f8c9b;
@@ -54,11 +45,7 @@ p {
 }
 
 
-/* .container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-} */
+
 
 p > span{
   font-weight: bold;
@@ -68,8 +55,3 @@ p > span{
 .touristCard:hover {
   transform: scale(1.1);
 }
-
-/* .touristCard:hover &__btn {
-  background: $clr-primary;
-  color: white;
-} */

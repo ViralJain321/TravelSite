@@ -15,17 +15,12 @@ function App() {
 
 
   return (
-    // <div className="App">
-    <>
-      <h1>Lest start</h1>
-
-      <SearchForm onAddLocation = {updateLocation}/>
-
-      {console.log(location)}
     
+    <>
+      <SearchForm onAddLocation = {updateLocation}/>
       {location && <ApiCall enteredDestination = {location} />}
       </>
-    // </div>
+
   );
 }
 

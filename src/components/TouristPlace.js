@@ -18,9 +18,7 @@ function TouristPlace(props) {
 
     
     if (image) {
-        // console.log(image)
         const imgUrl = image.source
-        // console.log("image present");
         return (
 
                 <div className={classes.touristCard}>
@@ -30,31 +28,7 @@ function TouristPlace(props) {
                     <p><span>Rate:</span> {rate}</p>
                     <p><span>Type:</span> {kinds}</p>
                     <p>{country}</p>
-                </div>
-
-                /* <span className={classes.touristCard}>
-                    <img className={classes.styleImage} src={image} alt="this is an img" />
-                    <h2>{name}</h2>
-                    <p>{country}</p>
-
-                    
-                </span>
-                <span className={classes.touristCard}>
-                    <img className={classes.styleImage} src={image} alt="this is an img" />
-                    <h2>{name}</h2>
-                    <p>{country}</p>
-
-                    
-                </span>
-                <span className={classes.touristCard}>
-                    <img className={classes.styleImage} src={image} alt="this is an img" />
-                    <h2>{name}</h2>
-                    <p>{country}</p>
-
-                    
-                </span> */
-
-            
+                </div>   
     
         );
     }
