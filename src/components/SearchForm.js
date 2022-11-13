@@ -1,8 +1,8 @@
 
-import { useCallback, useRef } from "react";
+import {  useRef } from "react";
 
 import Button from "../ui/Button/Button";
-import Card from '../ui/Card/Card'
+import Card from '../ui/Cards/Card'
 import classes from "./SearchForm.module.css";
 
 

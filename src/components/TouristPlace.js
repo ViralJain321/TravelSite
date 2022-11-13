@@ -1,13 +1,11 @@
-// import maldives2 from "./assets/maldives2.jpg";
+
 import classes from "./TouristPlace.module.css";
 
-// import { ProductCard } from "react-ui-cards";
 
 
 
 function TouristPlace(props) {
     const name = props.name
-    const city = props.address.city;
     const country = props.address.country;
     const kinds= props.kinds;
 

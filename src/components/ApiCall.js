@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import TouristCard from "../ui/TouristCard";
+import TouristCard from "../ui/Cards/TouristCard";
 import TouristPlace from "./TouristPlace";
 import classes from './ApiCall.module.css';
-import Card from "../ui/Card/Card";
+import Card from "../ui/Cards/Card";
 
 const options = {
     method: 'GET',
@@ -16,7 +16,7 @@ const options = {
 
 const ApiCall = (props) => {
 
-    const [isLoading, setIsLoading] = useState(true);
+    
     const [locationCoordinates, setLocationCoordinates] = useState({});
     const [places, setPlaces] = useState({});
     const [placeProperties, setPlaceProperties] = useState([]);
@@ -30,8 +30,6 @@ const ApiCall = (props) => {
 
         const getData = async () => {
 
-            console.log(`${process.env.REACT_APP_WEATHER_KEY}`);
-
             const getWeather = await fetch('https://api.openweathermap.org/data/2.5/weather?appid=' + `${process.env.REACT_APP_WEATHER_KEY}` +
                 "&q=" + `${props.enteredDestination}` + '&units=metric')
 
@@ -39,7 +37,7 @@ const ApiCall = (props) => {
 
             setWeather(weatherData);
 
-            console.log(weatherData);
+          
 
 
 
@@ -49,12 +47,12 @@ const ApiCall = (props) => {
 
             setLocationCoordinates(coordinates);
 
-            console.log(coordinates);
+          
 
             const lat = coordinates.lat;
             const lon = coordinates.lon;
 
-            console.log(lat + " " + lon);
+         
 
             const getPlaces = await fetch('https://opentripmap-places-v1.p.rapidapi.com/en/places/radius?radius=10000&lon=' + lon + '&lat=' +
                 lat + '&limit=20', options, { signal: abortController.signal })
@@ -79,7 +77,6 @@ const ApiCall = (props) => {
 
             }
 
-            setIsLoading(false);
 
         }
 
@@ -90,7 +87,7 @@ const ApiCall = (props) => {
 
         return () => {
             setPlaceProperties([]);
-            setIsLoading(true);
+     
             console.log(placeProperties)
             abortController.abort();
         }
@@ -101,11 +98,7 @@ const ApiCall = (props) => {
 
 
 
-    // if (!isLoading) {
-    //    return(
-
-    //    )
-    // }
+   
 
 
     return (
