@@ -1,2 +1,2 @@
-# TravelSite
+# Tripee
 A Travel Website
