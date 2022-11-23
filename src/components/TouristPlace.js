@@ -8,11 +8,8 @@ function TouristPlace(props) {
     const name = props.name
     const country = props.address.country;
     const kinds= props.kinds;
-
     const rate = props.rate;
     const image = props.image;
-
-   console.log(image);
 
     
     if (image) {
@@ -20,7 +17,6 @@ function TouristPlace(props) {
         return (
 
                 <div className={classes.touristCard}>
-                    {console.log(imgUrl)}
                     <img className={classes.styleImage} src={imgUrl} alt="this is an img" />
                     <h5 className={classes.name}>{name}</h5>
                     <p><span>Rate:</span> {rate}</p>

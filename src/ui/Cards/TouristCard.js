@@ -9,7 +9,5 @@ const TouristCard = (props) => {
         {props.children}
     </div>
     )
-
 }
-
 export default TouristCard;

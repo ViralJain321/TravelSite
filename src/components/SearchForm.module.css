@@ -12,10 +12,11 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
+
   
   .control input,
   .control textarea {
-    /* display: block; */
+ 
     font: inherit;
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -23,4 +24,18 @@
     width: 80%;
   }
   
+  .backgroundImg{
+    
+    height: 10rem;
+    margin: 0% 0% 5%;
+    padding : 20% 0%;
+    width: 100%;
   
+  
+    background: url('../assests/backgroundImage.jpg')  no-repeat  center;
+    background-size: cover;
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+  }

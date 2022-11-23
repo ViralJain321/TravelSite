@@ -1,5 +1,5 @@
 
-import {  useRef } from "react";
+import { useRef } from "react";
 
 import Button from "../ui/Button/Button";
 import Card from '../ui/Cards/Card'
@@ -16,8 +16,6 @@ const SearchForm = (props) => {
 
         const enteredLocation = locationInputRef.current.value;
 
-        console.log(enteredLocation);
-
         props.onAddLocation(enteredLocation);
     }
 
@@ -27,9 +25,7 @@ const SearchForm = (props) => {
 
     return (
         <div className={classes.backgroundImg}>
-            
             <Card>
-             
                 <form className={classes.form} onSubmit={setLocationHandler}>
                     <div className={classes.control}>
                         <label htmlFor="title">Enter Destination</label>
@@ -39,13 +35,9 @@ const SearchForm = (props) => {
                             <Button type="submit">Search</Button>
                       
                     </div>
-
-                   
                 </form>
-
             </Card>
 
-       
         </div>
     );
 };
